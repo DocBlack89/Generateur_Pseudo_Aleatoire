@@ -5,9 +5,9 @@ import csv
 import time
 
 def gen1():
-    a = 6
-    b = 2
-    m = 24
+    a = 16807
+    b = 0
+    m = 31
     k = datetime.datetime.now()
     k = str(k)
     ms = re.findall("([0-9]{6})", k)
@@ -15,7 +15,7 @@ def gen1():
     ms2 = int(ms1)
     print(ms2)
     print(type(ms2))
-    k = 5
+    k = ms2
     f = ((a*k)+b)%((2**m)-1)
     return f
 
@@ -23,20 +23,16 @@ def gen1():
 def alea():
     k = int(gen1())
     liste = [k]
-    temps = time.time()
-    temps1 = time.time()
-    while (temps1 < (temps+1)):
-        a = 6
-        b = 2
-        m = 24
+    for i in range(1000):
+        a = 16807
+        b = 0
+        m = 31
         f = ((a*k)+b)%((2**m)-1)
         k = f
         liste.append(k)
         g = open("liste.txt", "a")
         nb = str(k)+"\n"
-        g.write(nb)
-        temps1 = time.time() 
-        #print (temps, "->", temps1)   
+        g.write(nb) 
     c = Counter(liste)
     g.write(c)
     print(c)
