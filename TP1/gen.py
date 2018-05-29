@@ -5,8 +5,8 @@ import csv
 import time
 
 def gen1():
-    a = 1362
-    b = 17
+    a = 16807 #valeur permettant d'éviter la linéarité
+    b = 0 #valeur permettant d'éviter la linéarité
     m = 31
     k = datetime.datetime.now()
     k = str(k)
@@ -24,8 +24,8 @@ def alea():
     k = int(gen1())
     liste = [k]
     for i in range(1000):
-        a = 1362
-        b = 17
+        a = 16807
+        b = 0
         m = 31
         f = ((a*k)+b)%((2**m)-1)
         k = f
