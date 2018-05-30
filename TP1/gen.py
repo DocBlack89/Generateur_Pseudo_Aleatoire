@@ -16,6 +16,7 @@ def gen1():
     print(ms2)
     print(type(ms2))
     k = ms2
+    k=5
     f = ((a*k)+b)%((2**m)-1)
     return f
 
@@ -23,14 +24,14 @@ def gen1():
 def alea():
     k = int(gen1())
     liste = [k]
-    for i in range(1000):
-        a = 16807
-        b = 0
-        m = 31
+    for i in range(500):
+        a = 6
+        b = 2
+        m = 24
         f = ((a*k)+b)%((2**m)-1)
         k = f
         liste.append(k)
-        g = open("liste.txt", "a")
+        g = open("liste_gen_periode.txt", "a")
         nb = str(k)+"\n"
         g.write(nb) 
     c = Counter(liste)
